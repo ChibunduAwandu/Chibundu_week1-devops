@@ -31,9 +31,9 @@ jobs:
           coverage xml -o coverage.xml
 
       # Add coverage report as comment in pull request
-      - name: Add coverage report as comment
-        uses: macropin/pytest-cov-comment@v2
+      - name: Pytest coverage comment
+        uses: MishaKav/pytest-coverage-comment@main
         with:
-          github_token: ${{ secrets.DEVOPSWEEK1_TOKEN }}
-          coverage_file: coverage.xml
+            pytest-coverage-path: ./pytest-coverage.txt
+            coverage_file: coverage.xml
 
