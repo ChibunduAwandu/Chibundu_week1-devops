@@ -27,11 +27,11 @@ jobs:
 
       - name: Run tests and generate coverage report
         run: |
-          python -m pytest -v --cov=calculator tests/
-          coverage xml -o coverage.xml
+          python -m pytest -v --cov=calculator --cov-report=xml tests
 
       # Add coverage report as comment in pull request
       - name: Pytest Coverage Comment
         uses: MishaKav/pytest-coverage-comment@main
         with:
-            pytest-coverage-path: coverage.xml
+            pytest-coverage-path: ./pytest-coverage.txt
+            junitxml-path: ./pytest.xml
