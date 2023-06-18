@@ -33,5 +33,5 @@ jobs:
       - name: Pytest Coverage Comment
         uses: MishaKav/pytest-coverage-comment@main
         with:
-            pytest-coverage-path: /pytest-coverage.txt
-            junitxml-path: /pytest.xml
+            pytest-coverage-path: /home/runner/work/Chibundu_week1-devops/Chibundu_week1-devops/pytest-coverage.txt
+            junitxml-path: /home/runner/work/Chibundu_week1-devops/Chibundu_week1-devops/pytest.xml
