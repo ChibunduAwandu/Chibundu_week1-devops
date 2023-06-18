@@ -27,7 +27,7 @@ jobs:
 
       - name: Run tests and generate coverage report
         run: |
-          python -m pytest -v --cov=my_project tests/
+          python -m pytest -v --cov=Chibundu_week1-devops tests/
           coverage xml -o coverage.xml
 
       # Add coverage report as comment in pull request
