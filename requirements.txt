@@ -6,4 +6,3 @@ pluggy==1.0.0
 pytest==7.3.1
 tomli==2.0.1
 pytest-cov==2.0
-pytest-cov-comment==v1.1.47
