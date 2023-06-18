@@ -23,15 +23,21 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
+          pip install flake8 pytest pytest-cov
 
       - name: Run tests and generate coverage report
         run: |
-          python -m pytest -v --cov=calculator --cov-report=xml tests
+          python -m pytest -v tests
+      - name: Build coverage file
+        run: |
+          python -m pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov . | tee pytest-coverage.txt
 
-      # Add coverage report as comment in pull request
-      - name: Pytest Coverage Comment
+      - name: Pytest coverage comment
         uses: MishaKav/pytest-coverage-comment@main
         with:
-            pytest-coverage-path: /home/runner/work/Chibundu_week1-devops/Chibundu_week1-devops/pytest-coverage.txt
-            junitxml-path: /home/runner/work/Chibundu_week1-devops/Chibundu_week1-devops/pytest.xml
+          pytest-coverage-path: ./pytest-coverage.txt
+          junitxml-path: ./pytest.xml
+
+      
