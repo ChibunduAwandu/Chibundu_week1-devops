@@ -24,16 +24,14 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install -r requirements.txt
-      - name: Run tests
+
+      - name: Run tests and generate coverage report
         run: |
-          python -m pytest -v tests
-          pytest --cov=my_project tests/
+          python -m pytest -v --cov=my_project tests/
           coverage xml -o coverage.xml
 
       # Add coverage report as comment in pull request
-      - name: Pytest coverage comment
+      - name: Pytest Coverage Comment
         uses: MishaKav/pytest-coverage-comment@main
         with:
-            pytest-coverage-path: ./pytest-coverage.txt
-            coverage_file: coverage.xml
-
+            pytest-coverage-path: coverage.xml
