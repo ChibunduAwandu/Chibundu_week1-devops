@@ -27,7 +27,7 @@ jobs:
 
       - name: Run tests and generate coverage report
         run: |
-          python -m pytest -v --cov=/workspaces/Chibundu_week1-devopss tests/
+          python -m pytest -v --cov=/workspaces/Chibundu_week1-devopss/tests/
           coverage xml -o coverage.xml
 
       # Add coverage report as comment in pull request
